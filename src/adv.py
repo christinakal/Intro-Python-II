@@ -65,3 +65,16 @@ or west. "q" or "quit" to quit\n\n')
     if command == 'q' or command == 'quit':
         print('Thanks for playing')
         break
+    elif command in ['n', 's', 'e', 'w']:
+
+    # Error handling if user tries to go to a non-existent room
+        try:
+            player.current_room = getattr(player.current_room, f'{command}_to')
+        except AttributeError:
+            print("There's nowhere to go in that direction.")
+
+    elif len(command.split(' ')) > 1:
+        action, item_name = command.split(' ')
+
+    else:
+        skip()
