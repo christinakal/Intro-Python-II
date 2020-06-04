@@ -39,8 +39,7 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-current = 'outside'
-player = Player(current)
+player = Player(input('What is your name? '), room['outside'])
 # Write a loop that: 
 
 # I should make a while loop. 
@@ -54,3 +53,15 @@ player = Player(current)
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+def skip():
+    print("Not a valid comand!")
+
+while True:
+    print(f"\t{player}")
+
+    command = input('Enter "n", "s", "e", "w" to move north, south, east, \
+or west. "q" or "quit" to quit\n\n')
+
+    if command == 'q' or command == 'quit':
+        print('Thanks for playing')
+        break
