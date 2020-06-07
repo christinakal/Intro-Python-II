@@ -80,19 +80,23 @@ print('\x1bc')
 def skip():
     print('Not a valid command.')
 
+# For Loop
 while True:
     print(f"\t{player}")
 
     command = input('Enter "n", "s", "e", "w" to move north, south, east, \
 or west. "q" or "quit" to quit\n\n')
 
+    #Quit
     if command == 'q' or command == 'quit':
         print('Thanks for playing')
         break
     
+    #Inventory
     elif command == 'i':
         player.print_inventory()
 
+    #Room Navigation
     elif command in ['n', 's', 'e', 'w']:
         # Error handling if user tries to go to a non-existent room
         try:
