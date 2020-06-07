@@ -4,10 +4,18 @@
 # The room should also have n_to, s_to, e_to, and w_to attributes which point to the room in that respective direction.
 
 class Room:
-    def __init__(self, name, description):
+    def __init__(self, name, description, items=[]):
         self.name = name
         self.description = description
+        self.items = items
+
+    def remove_item(self, item):
+        self.items.remove(item)
+        return
+
+    def store_item(self,item):
+        self.items.append(item)
+        return    
     
     def __str__(self):
-        output = f"{self.name}, {self.description}"
-        return output
+        return f'{self.name}\n\n{self.description}\n\n{"".join(str(item) for item in self.items)}'
